@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { languages } from '../../i18n/ui';
+import { useTranslations, useTranslatedPath } from '../../i18n/utils';
+import { Trees, Droplets, Trash2, Sprout, Heart, MapPin } from 'lucide-astro';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const currentLang = (lang as keyof typeof languages) || 'mr';
+const t = useTranslations(currentLang);
+const translatePath = useTranslatedPath(currentLang);
+---
+
+<Layout title={`${t('program.environment.title')} | ${t('ngo.name')}`}>
+  
+  <!-- Page Banner -->
+  <section class="bg-gradient-to-r from-emerald-700 to-teal-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 bg-emerald-900/40 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-emerald-500/30">
+          <Trees class="w-4 h-4" />
+          <span>पर्यावरण व निसर्ग संवर्धन मोहीम</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">
+          {t('program.environment.title')}
+        </h1>
+        <p class="text-emerald-100 text-base leading-relaxed">
+          {t('program.environment.desc')}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Initiatives Grid -->
+  <section class="py-16 bg-white dark:bg-slate-950 transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        
+        <div class="bg-emerald-50/60 dark:bg-slate-900 p-8 rounded-3xl border border-emerald-200/80 dark:border-slate-800 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mb-6 shadow-md">
+            <Sprout class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('eco.feat1.title')}</h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">{t('eco.feat1.desc')}</p>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
+            <li class="flex items-center gap-2">✓ चिंच, कडुनिंब, वड, पिंपळ, आवळा लागवड</li>
+            <li class="flex items-center gap-2">✓ सिंहगड पायथा व वेताळ टेकडी मोहीम</li>
+            <li class="flex items-center gap-2">✓ झाडांचे तीन वर्षे संगोपन व संवर्धन हमी</li>
+          </ul>
+        </div>
+
+        <div class="bg-emerald-50/60 dark:bg-slate-900 p-8 rounded-3xl border border-emerald-200/80 dark:border-slate-800 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 shadow-md">
+            <Droplets class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('eco.feat2.title')}</h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">{t('eco.feat2.desc')}</p>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
+            <li class="flex items-center gap-2">✓ ग्रामीण भागातील विहिरी व तलावांचे पुनरुज्जीवन</li>
+            <li class="flex items-center gap-2">✓ डोंगर उतारांवर समपातळी चर (CCT) निर्मिती</li>
+            <li class="flex items-center gap-2">✓ शाळांमध्ये रेन वॉटर हार्वेस्टिंग यंत्रणा</li>
+          </ul>
+        </div>
+
+        <div class="bg-emerald-50/60 dark:bg-slate-900 p-8 rounded-3xl border border-emerald-200/80 dark:border-slate-800 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-700 text-white flex items-center justify-center mb-6 shadow-md">
+            <Trash2 class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('eco.feat3.title')}</h3>
+          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">{t('eco.feat3.desc')}</p>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
+            <li class="flex items-center gap-2">✓ मुळा-मुठा नदी पात्रात स्वच्छता drives</li>
+            <li class="flex items-center gap-2">✓ सोसायट्यांमध्ये ओल्या कचऱ्यापासून खत निर्मिती</li>
+            <li class="flex items-center gap-2">✓ सिंगल युज प्लास्टिक विरोधी जनजागृती</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Eco Action Banner -->
+      <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
+        <div class="space-y-2 text-center sm:text-left">
+          <h2 class="text-2xl sm:text-3xl font-extrabold">१ झाड दत्तक घ्या • Plant a Tree in Pune</h2>
+          <p class="text-emerald-100 text-sm max-w-xl">
+            केवळ ₹ २५० मध्ये १ देशी झाड लावा आणि त्याचे ३ वर्षे संगोपन आमच्या स्वयंसेवकांमार्फत सुनिश्चित करा.
+          </p>
+        </div>
+        <a
+          href={translatePath('/donate')}
+          class="shrink-0 bg-white hover:bg-emerald-50 text-emerald-800 font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
+        >
+          <Heart class="w-5 h-5 text-rose-500 fill-rose-500" />
+          <span>{t('action.donateNow')}</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

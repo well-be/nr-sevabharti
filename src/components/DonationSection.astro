@@ -1,0 +1,128 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { QrCode, Building2, ShieldCheck, Copy, CheckCircle2 } from 'lucide-astro';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<section id="donate" class="py-16 bg-slate-100/50 dark:bg-slate-900/40 relative transition-colors duration-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 text-xs font-bold px-4 py-1.5 rounded-full mb-4">
+        <ShieldCheck class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+        <span>{t('donate.badge80G')}</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+        {t('donate.title')}
+      </h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-300 text-base">
+        पुणे जिल्ह्यातील गरजू विद्यार्थ्यांच्या शिक्षणासाठी व सह्याद्री डोंगररांगातील वृक्षारोपणासाठी आपले योगदान द्या.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      
+      <!-- UPI / QR Payment Card -->
+      <div class="glass-card bg-white/90 dark:bg-slate-900/90 p-8 rounded-3xl flex flex-col items-center text-center justify-between transition-colors duration-200">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 flex items-center justify-center mx-auto mb-4">
+            <QrCode class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+            {t('donate.upiTitle')}
+          </h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mb-6 font-medium">
+            Scan using any GPay, PhonePe, Paytm, BHIM, or Banking UPI App
+          </p>
+
+          <!-- Simulated QR Code SVG -->
+          <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl shadow-inner inline-block mb-4">
+            <div class="w-48 h-48 bg-slate-900 dark:bg-slate-900 rounded-xl p-3 flex flex-col justify-between items-center text-white text-[10px] tracking-tight">
+              <div class="flex justify-between w-full">
+                <div class="w-10 h-10 bg-white border-4 border-slate-900 rounded-sm"></div>
+                <div class="w-10 h-10 bg-white border-4 border-slate-900 rounded-sm"></div>
+              </div>
+              <div class="text-center font-mono py-2">
+                <span class="text-amber-400 font-bold block text-xs">SEVABHARTI PUNE</span>
+                <span>sevabhartipune@sbi</span>
+              </div>
+              <div class="flex justify-between w-full">
+                <div class="w-10 h-10 bg-white border-4 border-slate-900 rounded-sm"></div>
+                <div class="w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center text-slate-900 font-extrabold">
+                  ₹
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 rounded-xl p-3 text-xs w-full font-mono flex items-center justify-between">
+          <span>UPI ID: <strong>sevabhartipune@sbi</strong></span>
+          <button id="copy-upi-btn" class="text-amber-700 dark:text-amber-300 hover:text-amber-900 flex items-center gap-1 font-sans text-xs font-semibold">
+            <Copy class="w-3.5 h-3.5" /> Copy
+          </button>
+        </div>
+      </div>
+
+      <!-- Bank Transfer Details Card -->
+      <div class="glass-card bg-white/90 dark:bg-slate-900/90 p-8 rounded-3xl flex flex-col justify-between transition-colors duration-200">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center justify-center mb-4">
+            <Building2 class="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+            {t('donate.bankTitle')}
+          </h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 mb-6 font-medium">
+            NEFT / RTGS / IMPS Direct Bank Deposit
+          </p>
+
+          <div class="space-y-3 text-sm border-t border-b border-slate-100 dark:border-slate-800 py-4 mb-6">
+            <div class="flex justify-between py-1">
+              <span class="text-slate-600 dark:text-slate-400">{t('donate.bankName')}</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-slate-600 dark:text-slate-400">{t('donate.accName')}</span>
+            </div>
+            <div class="flex justify-between py-1 bg-slate-100 dark:bg-slate-800/60 p-2 rounded-lg font-mono">
+              <span class="text-slate-800 dark:text-slate-200">{t('donate.accNo')}</span>
+            </div>
+            <div class="flex justify-between py-1 font-mono">
+              <span class="text-slate-600 dark:text-slate-400">{t('donate.ifsc')}</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-slate-600 dark:text-slate-400">{t('donate.branch')}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 rounded-xl p-4 text-xs">
+          <p class="font-bold mb-1 flex items-center gap-1.5">
+            <CheckCircle2 class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+            <span>80G Receipt Request / ८०G पावती मिळवण्यासाठी:</span>
+          </p>
+          <p class="text-slate-700 dark:text-slate-300">
+            Please WhatsApp your transaction ID & PAN card details to <strong>+91 98220 00000</strong> to receive your tax exemption certificate.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function setupCopyBtn() {
+    const copyBtn = document.getElementById('copy-upi-btn');
+    copyBtn?.addEventListener('click', () => {
+      navigator.clipboard.writeText('sevabhartipune@sbi');
+      alert('UPI ID (sevabhartipune@sbi) copied to clipboard!');
+    });
+  }
+
+  setupCopyBtn();
+  document.addEventListener('astro:after-swap', setupCopyBtn);
+</script>

@@ -1,0 +1,6 @@
+---
+import { defaultLang } from '../i18n/ui';
+
+// Redirect root '/' to the default language path '/mr/'
+return Astro.redirect(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/${defaultLang}/`);
+---

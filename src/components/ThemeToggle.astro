@@ -1,0 +1,28 @@
+---
+import { Sun, Moon } from 'lucide-astro';
+---
+
+<button
+  type="button"
+  aria-label="Toggle Theme"
+  class="theme-toggle-btn p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-200 shadow-xs focus:outline-none border-0"
+  title="Toggle Light / Dark Mode"
+>
+  <Sun class="w-4 h-4 hidden dark:block text-amber-400" />
+  <Moon class="w-4 h-4 block dark:hidden text-indigo-600" />
+</button>
+
+<script>
+  function setupThemeToggle() {
+    const buttons = document.querySelectorAll('.theme-toggle-btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    });
+  }
+
+  setupThemeToggle();
+  document.addEventListener('astro:after-swap', setupThemeToggle);
+</script>

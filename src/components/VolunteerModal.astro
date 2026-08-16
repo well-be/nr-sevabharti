@@ -1,0 +1,86 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { Users, Send } from 'lucide-astro';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<div class="glass-card bg-white/90 dark:bg-slate-900/90 rounded-3xl p-8 transition-colors duration-200">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center shrink-0">
+      <Users class="w-5 h-5" />
+    </div>
+    <div>
+      <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white leading-tight">
+        {t('vol.title')}
+      </h3>
+      <p class="text-xs font-semibold text-slate-600 dark:text-slate-400 mt-0.5">
+        पुण्यातील शिक्षण व पर्यावरण मोहिमेत योगदान द्या
+      </p>
+    </div>
+  </div>
+
+  <form id="volunteer-form" class="space-y-4" onsubmit="event.preventDefault(); alert('धन्यवाद! आमची टीम लवकरच आपल्याशी संपर्क साधेल. (Thank you for volunteering!)');">
+    <div>
+      <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.name')} *</label>
+      <input
+        type="text"
+        required
+        placeholder="उदा. राहुल देशमुख / Rahul Deshmukh"
+        class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm font-medium focus:ring-2 focus:ring-brand-500 outline-none"
+      />
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.phone')} *</label>
+      <input
+        type="tel"
+        required
+        placeholder="+91 98XXX XXXXX"
+        class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm font-medium focus:ring-2 focus:ring-brand-500 outline-none"
+      />
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.area')} *</label>
+      <select
+        required
+        class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-medium focus:ring-2 focus:ring-brand-500 outline-none"
+      >
+        <option value="" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">परिसर निवडा (Select Area)</option>
+        <option value="kothrud" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">कोथरूड / डेक्कन (Kothrud / Deccan)</option>
+        <option value="hadapsar" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">हडपसर / वाकड (Hadapsar / Wakad)</option>
+        <option value="pimpri" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">पिंपरी-चिंचवड (Pimpri-Chinchwad)</option>
+        <option value="shivajinagar" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">शिवाजीनगर / पद्मावती (Shivajinagar)</option>
+        <option value="haveli" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">हवेली / ग्रामीण पुणे (Rural Pune / Haveli)</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.interest')} *</label>
+      <div class="grid grid-cols-3 gap-2">
+        <label class="flex items-center gap-2 rounded-xl p-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <input type="radio" name="interest" value="edu" checked class="text-brand-600 focus:ring-brand-500" />
+          <span>{t('vol.interestEdu')}</span>
+        </label>
+        <label class="flex items-center gap-2 rounded-xl p-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <input type="radio" name="interest" value="eco" class="text-brand-600 focus:ring-brand-500" />
+          <span>{t('vol.interestEco')}</span>
+        </label>
+        <label class="flex items-center gap-2 rounded-xl p-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <input type="radio" name="interest" value="both" class="text-brand-600 focus:ring-brand-500" />
+          <span>{t('vol.interestBoth')}</span>
+        </label>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all text-sm mt-3"
+    >
+      <Send class="w-4 h-4" />
+      <span>{t('vol.submit')}</span>
+    </button>
+  </form>
+</div>
