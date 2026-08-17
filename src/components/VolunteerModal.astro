@@ -21,11 +21,13 @@ const t = useTranslations(currentLang);
     </div>
   </div>
 
-  <form id="volunteer-form" class="space-y-4" onsubmit="event.preventDefault(); alert('धन्यवाद! आमची टीम लवकरच आपल्याशी संपर्क साधेल. (Thank you for volunteering!)');">
+  <form id="volunteer-form" class="space-y-4">
     <div>
       <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.name')} *</label>
       <input
         type="text"
+        id="vol-name"
+        name="name"
         required
         placeholder="उदा. राहुल देशमुख / Rahul Deshmukh"
         class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm font-medium focus:ring-2 focus:ring-brand-500 outline-none"
@@ -36,8 +38,10 @@ const t = useTranslations(currentLang);
       <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.phone')} *</label>
       <input
         type="tel"
+        id="vol-phone"
+        name="phone"
         required
-        placeholder="+91 98XXX XXXXX"
+        placeholder="+91 90211 16405"
         class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm font-medium focus:ring-2 focus:ring-brand-500 outline-none"
       />
     </div>
@@ -45,15 +49,17 @@ const t = useTranslations(currentLang);
     <div>
       <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.area')} *</label>
       <select
+        id="vol-area"
+        name="area"
         required
         class="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-medium focus:ring-2 focus:ring-brand-500 outline-none"
       >
         <option value="" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">परिसर निवडा (Select Area)</option>
-        <option value="kothrud" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">कोथरूड / डेक्कन (Kothrud / Deccan)</option>
-        <option value="hadapsar" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">हडपसर / वाकड (Hadapsar / Wakad)</option>
-        <option value="pimpri" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">पिंपरी-चिंचवड (Pimpri-Chinchwad)</option>
-        <option value="shivajinagar" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">शिवाजीनगर / पद्मावती (Shivajinagar)</option>
-        <option value="haveli" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">हवेली / ग्रामीण पुणे (Rural Pune / Haveli)</option>
+        <option value="कोथरूड / डेक्कन (Kothrud / Deccan)" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">कोथरूड / डेक्कन (Kothrud / Deccan)</option>
+        <option value="हडपसर / वाकड (Hadapsar / Wakad)" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">हडपसर / वाकड (Hadapsar / Wakad)</option>
+        <option value="पिंपरी-चिंचवड (Pimpri-Chinchwad)" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">पिंपरी-चिंचवड (Pimpri-Chinchwad)</option>
+        <option value="शिवाजीनगर / पद्मावती (Shivajinagar)" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">शिवाजीनगर / पद्मावती (Shivajinagar)</option>
+        <option value="हवेली / ग्रामीण पुणे (Rural Pune / Haveli)" class="text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900">हवेली / ग्रामीण पुणे (Rural Pune / Haveli)</option>
       </select>
     </div>
 
@@ -61,15 +67,15 @@ const t = useTranslations(currentLang);
       <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{t('vol.interest')} *</label>
       <div class="grid grid-cols-3 gap-2">
         <label class="flex items-center gap-2 rounded-xl p-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-          <input type="radio" name="interest" value="edu" checked class="text-brand-600 focus:ring-brand-500" />
+          <input type="radio" name="interest" value="शिक्षण उपक्रम (Education Initiatives)" checked class="text-brand-600 focus:ring-brand-500" />
           <span>{t('vol.interestEdu')}</span>
         </label>
         <label class="flex items-center gap-2 rounded-xl p-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-          <input type="radio" name="interest" value="eco" class="text-brand-600 focus:ring-brand-500" />
+          <input type="radio" name="interest" value="पर्यावरण मोहीम (Environment Drives)" class="text-brand-600 focus:ring-brand-500" />
           <span>{t('vol.interestEco')}</span>
         </label>
         <label class="flex items-center gap-2 rounded-xl p-2.5 text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-          <input type="radio" name="interest" value="both" class="text-brand-600 focus:ring-brand-500" />
+          <input type="radio" name="interest" value="दोन्ही उपक्रम (Both Programs)" class="text-brand-600 focus:ring-brand-500" />
           <span>{t('vol.interestBoth')}</span>
         </label>
       </div>
@@ -77,10 +83,49 @@ const t = useTranslations(currentLang);
 
     <button
       type="submit"
-      class="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all text-sm mt-3"
+      class="w-full flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all text-sm mt-3 cursor-pointer"
     >
       <Send class="w-4 h-4" />
-      <span>{t('vol.submit')}</span>
+      <span>{t('vol.submit')} (WhatsApp)</span>
     </button>
   </form>
 </div>
+
+<script>
+  function handleVolunteerForm() {
+    const form = document.getElementById('volunteer-form') as HTMLFormElement | null;
+    if (!form || form.dataset.bound === 'true') return;
+    form.dataset.bound = 'true';
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('vol-name') as HTMLInputElement)?.value.trim() || '';
+      const phone = (document.getElementById('vol-phone') as HTMLInputElement)?.value.trim() || '';
+      const areaSelect = document.getElementById('vol-area') as HTMLSelectElement;
+      const area = areaSelect ? areaSelect.value : '';
+      const interestRadio = form.querySelector('input[name="interest"]:checked') as HTMLInputElement;
+      const interest = interestRadio ? interestRadio.value : '';
+
+      if (!name || !phone || !area) {
+        alert('कृपया सर्व माहिती भरा. (Please fill in all required fields.)');
+        return;
+      }
+
+      const whatsappMessage = 
+`*सेवा भारती पुणे - स्वयंसेवक नोंदणी*
+━━━━━━━━━━━━━━━━━━━
+👤 *नाव (Name):* ${name}
+📱 *मोबाईल (Phone):* ${phone}
+📍 *परिसर (Area):* ${area}
+🎯 *रुची (Interest):* ${interest}
+━━━━━━━━━━━━━━━━━━━
+_Sent via nrsevabharti.com_`;
+
+      const whatsappUrl = `https://wa.me/919021116405?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+  }
+
+  handleVolunteerForm();
+  document.addEventListener('astro:after-swap', handleVolunteerForm);
+</script>

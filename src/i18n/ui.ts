@@ -88,7 +88,7 @@ export const ui = {
 
     // Footer & Contact
     'footer.addr': 'सेवा भारती पुणे केंद्र, प्लॉट ४२, सहकार नगर, पद्मावती जवळ, पुणे - ४११००९',
-    'footer.phone': '+91 20 2422 0000 / +91 98220 00000',
+    'footer.phone': '+91 90211 16405',
     'footer.email': 'contact@nr-sevabharti.org',
     'footer.rights': 'सर्व हक्क सुरक्षित © सेवा भारती पुणे',
   },
@@ -173,7 +173,7 @@ export const ui = {
 
     // Footer & Contact
     'footer.addr': 'Seva Bharti Pune Center, Plot 42, Sahakar Nagar, Near Padmavati, Pune - 411009',
-    'footer.phone': '+91 20 2422 0000 / +91 98220 00000',
+    'footer.phone': '+91 90211 16405',
     'footer.email': 'contact@nr-sevabharti.org',
     'footer.rights': 'All Rights Reserved © Seva Bharti Pune',
   },
@@ -258,7 +258,7 @@ export const ui = {
 
     // Footer & Contact
     'footer.addr': 'सेवा भारती पुणे केंद्र, प्लॉट ४२, सहकार नगर, पद्मावती के पास, पुणे - ४११००९',
-    'footer.phone': '+91 20 2422 0000 / +91 98220 00000',
+    'footer.phone': '+91 90211 16405',
     'footer.email': 'contact@nr-sevabharti.org',
     'footer.rights': 'सर्वाधिकार सुरक्षित © सेवा भारती पुणे',
   }
