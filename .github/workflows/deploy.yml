@@ -34,8 +34,8 @@ jobs:
       - name: Build static site with Astro
         run: npm run build
         env:
-          SITE_URL: 'https://${{ github.repository_owner }}.github.io'
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          SITE_URL: 'https://nrsevabharti.com'
+          BASE_PATH: ''
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3

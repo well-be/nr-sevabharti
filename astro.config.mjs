@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://well-be.github.io',
+  site: process.env.SITE_URL || 'https://nrsevabharti.com',
   base: process.env.BASE_PATH || '',
   integrations: [tailwind()],
   i18n: {
