@@ -7,22 +7,23 @@ const currentPath = Astro.url.pathname;
 const translatePath = useTranslatedPath(currentLang);
 ---
 
-<div class="relative inline-block text-left">
-  <div class="flex items-center gap-1 bg-white/90 backdrop-blur border border-slate-200 rounded-full p-1 shadow-sm">
+<div class="relative inline-block text-left shrink-0">
+  <div class="flex items-center gap-0.5 sm:gap-1 bg-white/90 dark:bg-slate-800/90 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-full p-0.5 sm:p-1 shadow-xs">
     {Object.entries(languages).map(([langKey, langInfo]) => {
       const isActive = currentLang === langKey;
       const targetUrl = translatePath(currentPath, langKey);
       return (
         <a
           href={targetUrl}
-          class={`px-3 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
+          class={`px-2 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs font-semibold rounded-full transition-all duration-200 ${
             isActive
-              ? 'bg-brand-700 text-white shadow-sm'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              ? 'bg-brand-700 dark:bg-brand-600 text-white shadow-xs'
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700/60'
           }`}
           title={langInfo.label}
         >
-          {langInfo.label}
+          <span class="hidden sm:inline">{langInfo.label}</span>
+          <span class="inline sm:hidden font-bold uppercase">{langKey}</span>
         </a>
       );
     })}
