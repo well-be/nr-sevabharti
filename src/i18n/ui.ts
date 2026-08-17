@@ -90,7 +90,7 @@ export const ui = {
     // Footer & Contact
     'footer.addr': 'सेवा भारती केंद्र, प्लॉट ४२, सहकार नगर, पद्मावती जवळ, पुणे - ४११००९',
     'footer.phone': '+91 90211 16405',
-    'footer.email': 'contact@nr-sevabharti.org',
+    'footer.email': 'nrsevabharti@gmail.com',
     'footer.rights': 'सर्व हक्क सुरक्षित © सेवा भारती',
   },
   en: {
