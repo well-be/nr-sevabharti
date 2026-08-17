@@ -2,10 +2,14 @@
 import Layout from '../../layouts/Layout.astro';
 import { languages } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
-import { GraduationCap, BookOpen, Laptop, Award, Heart, ArrowRight } from 'lucide-astro';
+import { GraduationCap, BookOpen, Laptop, Award, Heart } from 'lucide-astro';
 
 export function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+  return [
+    { params: { lang: undefined } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'hi' } },
+  ];
 }
 
 const { lang } = Astro.params;

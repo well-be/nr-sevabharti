@@ -3,10 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import { languages } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
 import VolunteerModal from '../../components/VolunteerModal.astro';
-import { Users, Calendar, MapPin, Clock, CheckCircle2 } from 'lucide-astro';
+import { Calendar, MapPin, Clock, CheckCircle2 } from 'lucide-astro';
 
 export function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+  return [
+    { params: { lang: undefined } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'hi' } },
+  ];
 }
 
 const { lang } = Astro.params;

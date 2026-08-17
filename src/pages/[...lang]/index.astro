@@ -9,7 +9,11 @@ import VolunteerModal from '../../components/VolunteerModal.astro';
 import { Heart, Sparkles, MapPin, CheckCircle, ArrowRight } from 'lucide-astro';
 
 export function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+  return [
+    { params: { lang: undefined } },
+    { params: { lang: 'en' } },
+    { params: { lang: 'hi' } },
+  ];
 }
 
 const { lang } = Astro.params;
