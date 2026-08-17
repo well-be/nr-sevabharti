@@ -61,7 +61,7 @@ const t = useTranslations(currentLang);
             </div>
             <div>
               <h3 class="font-bold text-slate-900 dark:text-white mb-1">ईमेल (Email Address)</h3>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{t('footer.email')}</p>
+              <a href={`mailto:${t('footer.email')}`} class="text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors leading-relaxed">{t('footer.email')}</a>
             </div>
           </div>
 
