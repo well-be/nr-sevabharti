@@ -22,17 +22,17 @@ const translatePath = useTranslatedPath(currentLang);
 <Layout title={`${t('program.education.title')} | ${t('ngo.name')}`}>
   
   <!-- Page Banner -->
-  <section class="bg-gradient-to-r from-palette-gold to-edu-600 text-slate-950 py-16">
+  <section class="bg-gradient-to-r from-palette-gold via-palette-gold to-amber-500 text-slate-950 py-16 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-slate-950/15 text-slate-950 text-xs font-bold px-3 py-1 rounded-full mb-3 border border-slate-950/20">
+        <span class="inline-flex items-center gap-2 bg-slate-950/15 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-full mb-3 border border-slate-950/20">
           <EducationIcon class="w-4 h-4 shrink-0" />
-          <span>शिक्षा विकास अभियान • Education Drive</span>
+          <span>{t('edu.pageBadge')}</span>
         </span>
         <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">
           {t('program.education.title')}
         </h1>
-        <p class="text-amber-100 text-base leading-relaxed">
+        <p class="text-slate-900 text-base leading-relaxed font-medium">
           {t('program.education.desc')}
         </p>
       </div>
@@ -45,58 +45,85 @@ const translatePath = useTranslatedPath(currentLang);
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         
-        <div class="bg-amber-50/60 dark:bg-slate-900 p-8 rounded-3xl border border-amber-200/80 dark:border-slate-800 shadow-xs">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center mb-6 shadow-md">
+        <div class="bg-palette-gold/10 dark:bg-slate-900 p-8 rounded-3xl border border-palette-gold/30 dark:border-slate-800 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-palette-gold text-slate-950 flex items-center justify-center mb-6 shadow-md font-bold">
             <BookOpen class="w-6 h-6" />
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('edu.feat1.title')}</h3>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">{t('edu.feat1.desc')}</p>
-          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
-            <li class="flex items-center gap-2">✓ दररोज संध्याकाळी ५ ते ७ अभ्यासवर्ग</li>
-            <li class="flex items-center gap-2">✓ गणित, इंग्रजी व विज्ञान विषयांवर भर</li>
-            <li class="flex items-center gap-2">✓ दरमहा आरोग्य तपासणी व खाऊ वाटप</li>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2.5">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet1_1')}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet1_2')}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet1_3')}</span>
+            </li>
           </ul>
         </div>
 
-        <div class="bg-amber-50/60 dark:bg-slate-900 p-8 rounded-3xl border border-amber-200/80 dark:border-slate-800 shadow-xs">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center mb-6 shadow-md">
+        <div class="bg-palette-gold/10 dark:bg-slate-900 p-8 rounded-3xl border border-palette-gold/30 dark:border-slate-800 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-palette-gold text-slate-950 flex items-center justify-center mb-6 shadow-md font-bold">
             <Laptop class="w-6 h-6" />
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('edu.feat2.title')}</h3>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">{t('edu.feat2.desc')}</p>
-          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
-            <li class="flex items-center gap-2">✓ कॉम्प्युटर बेसिक व कोडिंगचे धडे</li>
-            <li class="flex items-center gap-2">✓ डिजिटल लायब्ररी व ई-लर्निंग टॅब सुविधा</li>
-            <li class="flex items-center gap-2">✓ इंग्रजी संभाषण कौशल्य वर्ग</li>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2.5">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet2_1')}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet2_2')}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet2_3')}</span>
+            </li>
           </ul>
         </div>
 
-        <div class="bg-amber-50/60 dark:bg-slate-900 p-8 rounded-3xl border border-amber-200/80 dark:border-slate-800 shadow-xs">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center mb-6 shadow-md">
+        <div class="bg-palette-gold/10 dark:bg-slate-900 p-8 rounded-3xl border border-palette-gold/30 dark:border-slate-800 shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-palette-gold text-slate-950 flex items-center justify-center mb-6 shadow-md font-bold">
             <Award class="w-6 h-6" />
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('edu.feat3.title')}</h3>
           <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">{t('edu.feat3.desc')}</p>
-          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2">
-            <li class="flex items-center gap-2">✓ वर्षाला १०००+ विद्यार्थ्यांना दप्तर व वह्या वाटप</li>
-            <li class="flex items-center gap-2">✓ उच्च शिक्षणासाठी गुणवत्ता शिष्यवृत्ती</li>
-            <li class="flex items-center gap-2">✓ करिअर मार्गदर्शन व समुपदेशन केंद्र</li>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-2.5">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet3_1')}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet3_2')}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-palette-gold shrink-0"></span>
+              <span>{t('edu.bullet3_3')}</span>
+            </li>
           </ul>
         </div>
 
       </div>
 
       <!-- Support CTA Banner -->
-      <div class="bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
+      <div class="bg-gradient-to-r from-palette-gold to-amber-500 text-slate-950 rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg shadow-palette-gold/20">
         <div class="space-y-2 text-center sm:text-left">
-          <h2 class="text-2xl sm:text-3xl font-extrabold">एका बालकाचे शिक्षण दत्तक घ्या (Sponsor a Child)</h2>
-          <p class="text-amber-100 text-sm max-w-xl">
-            केवळ ₹ ५०० प्रति महिना मदतीने गरजू विद्यार्थ्याचे संपूर्ण वर्षाचे शैक्षणिक साहित्य व अभ्यासवर्ग शुल्क पूर्ण होऊ शकते.
+          <h2 class="text-2xl sm:text-3xl font-extrabold">{t('edu.sponsorTitle')}</h2>
+          <p class="text-slate-900 text-sm max-w-xl font-medium">
+            {t('edu.sponsorDesc')}
           </p>
         </div>
         <a
           href={translatePath('/donate')}
-          class="shrink-0 bg-white hover:bg-slate-50 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
+          class="shrink-0 bg-slate-950 hover:bg-slate-900 text-white font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
         >
           <HeartIcon class="w-5 h-5 shrink-0" />
           <span>{t('action.donateNow')}</span>

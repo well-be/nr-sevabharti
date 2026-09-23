@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { languages } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
 import DonationSection from '../../components/DonationSection.astro';
-import { HelpCircle } from 'lucide-astro';
+import { HelpCircle, CheckSquare } from 'lucide-astro';
 
 export function getStaticPaths() {
   return [
@@ -19,16 +19,16 @@ const t = useTranslations(currentLang);
 
 const faqs = [
   {
-    q: '८०G कर सवलत पावती कशी मिळेल? (How to get 80G Tax Receipt?)',
-    a: 'आपली देणगी पूर्ण झाल्यानंतर ट्रान्सफरचा स्क्रीनशॉट / युटीआर (UTR) नंबर आणि आपला पॅन कार्ड (PAN Card) क्रमांक +91 90211 16405 या नंबरवर व्हॉट्सॲप करा. पावती ३ कामकाजाच्या दिवसांत डिजिटल स्वरूपात पाठवली जाईल.'
+    q: t('donate.faq1.q'),
+    a: t('donate.faq1.a')
   },
   {
-    q: 'माझी देणगी कुठल्या उपक्रमासाठी वापरली जाते?',
-    a: 'आपण दिलेल्या देणगीचा १००% उपयोग पुणे जिल्ह्यातील बालकांच्या शैक्षणिक साहित्यासाठी आणि सह्याद्री डोंगररांगातील वृक्ष लागवड व तीन वर्षांच्या संगोपनासाठी केला जातो.'
+    q: t('donate.faq2.q'),
+    a: t('donate.faq2.a')
   },
   {
-    q: 'मी रोख (Cash) स्वरूपात देणगी देऊ शकतो का?',
-    a: 'पारदर्शकता राखण्यासाठी आम्ही ऑनलाइन बँक ट्रान्सफर, युपीआय (UPI) किंवा धनादेश (Cheque - "Seva Bharti Pune" नावाने) स्वीकारतो.'
+    q: t('donate.faq3.q'),
+    a: t('donate.faq3.a')
   }
 ];
 ---
@@ -37,20 +37,39 @@ const faqs = [
   
   <DonationSection />
 
+  <!-- Cheque / DD Guidance Card (Inspired by Kokan NGO's payment transparency) -->
+  <section class="py-10 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800 transition-colors duration-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-palette-indigo/25 shadow-xs flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-aqua flex items-center justify-center shrink-0 border border-palette-indigo/20">
+          <CheckSquare class="w-6 h-6" />
+        </div>
+        <div class="space-y-1">
+          <h4 class="text-base font-bold text-slate-900 dark:text-white">
+            {t('donate.chequeTitle')}
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            {t('donate.chequeDesc')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
-  <section class="py-16 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-200">
+  <section class="py-16 bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 transition-colors duration-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-12">
-        <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center justify-center mx-auto mb-3">
+        <div class="w-10 h-10 rounded-xl bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold flex items-center justify-center mx-auto mb-3 border border-palette-gold/30">
           <HelpCircle class="w-5 h-5" />
         </div>
-        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">देणगीविषयक वारंवार विचारले जाणारे प्रश्न (FAQs)</h3>
+        <h3 class="text-2xl font-bold text-slate-900 dark:text-white">{t('donate.faqTitle')}</h3>
       </div>
 
-      <div class="space-y-6">
+      <div class="space-y-5">
         {faqs.map((faq) => (
-          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-200">
+          <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 transition-colors duration-200 shadow-xs">
             <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <span class="text-palette-gold font-extrabold">Q.</span>
               <span>{faq.q}</span>
@@ -62,9 +81,9 @@ const faqs = [
         ))}
       </div>
 
-      <!-- Need Help Info -->
+      <!-- Need Help / CSR Info -->
       <div class="mt-12 text-center text-xs text-slate-500 dark:text-slate-400">
-        <p>अधिक मदतीसाठी किंवा सीएसआर (CSR) सहकार्यासाठी संपर्क: <a href="mailto:nrsevabharti@gmail.com" class="text-brand-600 dark:text-brand-400 font-semibold underline">nrsevabharti@gmail.com</a></p>
+        <p>{t('donate.csrContact')} <a href={`mailto:${t('footer.email')}`} class="text-palette-indigo dark:text-palette-aqua font-semibold underline">{t('footer.email')}</a></p>
       </div>
 
     </div>

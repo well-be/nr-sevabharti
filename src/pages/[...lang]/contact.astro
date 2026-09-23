@@ -23,8 +23,8 @@ const t = useTranslations(currentLang);
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">{t('action.contactUs')}</h1>
-        <p class="text-slate-600 dark:text-slate-400 text-sm">सेवा भारती पुणे केंद्र • सहकार नगर, पद्मावती परिसर, पुणे</p>
+        <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">{t('contact.title')}</h1>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">{t('contact.subtitle')}</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
@@ -32,46 +32,45 @@ const t = useTranslations(currentLang);
         <!-- Left: Office Contact Cards -->
         <div class="lg:col-span-5 space-y-6">
           
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center shrink-0">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-start gap-4 transition-colors duration-200">
+            <div class="w-10 h-10 rounded-xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center shrink-0 border border-palette-indigo/20">
               <MapPin class="w-5 h-5" />
             </div>
             <div>
-              <h3 class="font-bold text-slate-900 dark:text-white mb-1">मुख्य कार्यालय (Pune Head Office)</h3>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">{t('contact.office')}</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{t('footer.addr')}</p>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-palette-aqua/25 text-palette-indigo dark:text-palette-aqua flex items-center justify-center shrink-0">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-start gap-4 transition-colors duration-200">
+            <div class="w-10 h-10 rounded-xl bg-palette-aqua/25 text-palette-indigo dark:text-palette-aqua flex items-center justify-center shrink-0 border border-palette-aqua/30">
               <MessageCircle class="w-5 h-5" />
             </div>
             <div>
-              <h3 class="font-bold text-slate-900 dark:text-white mb-1">फोन व व्हॉट्सॲप (Phone / WhatsApp)</h3>
-              <a href="https://wa.me/919021116405" target="_blank" class="text-sm font-semibold text-palette-indigo dark:text-palette-aqua hover:underline flex items-center gap-1.5 mt-0.5">
-                <span>+91 90211 16405</span>
-                <span class="text-[10px] bg-palette-aqua/30 dark:bg-palette-indigo/50 px-2 py-0.5 rounded-full text-palette-indigo-dark dark:text-palette-aqua font-bold">WhatsApp Active</span>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">{t('contact.phone')}</h3>
+              <a href="https://wa.me/918285129797" target="_blank" class="text-sm font-semibold text-palette-indigo dark:text-palette-aqua hover:underline flex items-center gap-1.5 mt-0.5">
+                <span>+91 82851 29797 / +91 90211 16405</span>
               </a>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center shrink-0">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-start gap-4 transition-colors duration-200">
+            <div class="w-10 h-10 rounded-xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center shrink-0 border border-palette-indigo/20">
               <Mail class="w-5 h-5" />
             </div>
             <div>
-              <h3 class="font-bold text-slate-900 dark:text-white mb-1">ईमेल (Email Address)</h3>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">{t('contact.email')}</h3>
               <a href={`mailto:${t('footer.email')}`} class="text-xs text-slate-600 dark:text-slate-400 hover:text-palette-indigo dark:hover:text-palette-aqua transition-colors leading-relaxed">{t('footer.email')}</a>
             </div>
           </div>
 
-          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold flex items-center justify-center shrink-0">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-start gap-4 transition-colors duration-200">
+            <div class="w-10 h-10 rounded-xl bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold flex items-center justify-center shrink-0 border border-palette-gold/30">
               <Clock class="w-5 h-5" />
             </div>
             <div>
-              <h3 class="font-bold text-slate-900 dark:text-white mb-1">कार्यालयीन वेळ (Office Hours)</h3>
-              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">सोमवार ते शनिवार: सकाळी १०:०० ते संध्याकाळी ६:०० (रविवार सुट्टी)</p>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">{t('contact.hours')}</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{t('contact.hoursText')}</p>
             </div>
           </div>
 
@@ -81,66 +80,71 @@ const t = useTranslations(currentLang);
         <div class="lg:col-span-7">
           <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md transition-colors duration-200">
             <div class="flex items-center justify-between mb-6">
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white">आम्हाला संदेश पाठवा (Send us a Message)</h3>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">{t('contact.formTitle')}</h3>
               <span class="text-xs text-palette-indigo dark:text-palette-aqua font-semibold bg-palette-aqua/20 dark:bg-palette-indigo/40 px-2.5 py-1 rounded-full border border-palette-aqua/40 dark:border-palette-indigo/50 flex items-center gap-1">
                 <MessageCircle class="w-3.5 h-3.5" />
-                <span>Direct WhatsApp</span>
+                <span>WhatsApp</span>
               </span>
             </div>
             
-            <form id="contact-form" class="space-y-4">
+            <form
+              id="contact-form"
+              class="space-y-4"
+              data-lang={currentLang}
+              data-alert-msg={t('contact.alertFill')}
+            >
               <div>
-                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">आपले नाव (Full Name) *</label>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">{t('contact.nameLabel')} *</label>
                 <input
                   type="text"
                   id="contact-name"
                   required
-                  placeholder="उदा. अमित पाटील / Amit Patil"
-                  class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+                  placeholder={t('contact.namePlaceholder')}
+                  class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-palette-indigo outline-none"
                 />
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">ईमेल (Email)</label>
+                  <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">{t('contact.emailLabel')}</label>
                   <input
                     type="email"
                     id="contact-email"
-                    placeholder="name@example.com"
-                    class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+                    placeholder={t('contact.emailPlaceholder')}
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-palette-indigo outline-none"
                   />
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">मोबाईल नंबर (Phone) *</label>
+                  <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">{t('contact.phoneLabel')} *</label>
                   <input
                     type="tel"
                     id="contact-phone"
                     required
-                    placeholder="+91 90211 16405"
-                    class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+                    placeholder="+91 82851 29797"
+                    class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-palette-indigo outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">विषय (Subject) *</label>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">{t('contact.subjectLabel')} *</label>
                 <input
                   type="text"
                   id="contact-subject"
                   required
-                  placeholder="उदा. देणगी / स्वयंसेवक / शैक्षणिक मदत"
-                  class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+                  placeholder={t('contact.subjectPlaceholder')}
+                  class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-palette-indigo outline-none"
                 />
               </div>
 
               <div>
-                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">संदेश (Message) *</label>
+                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">{t('contact.msgLabel')} *</label>
                 <textarea
                   id="contact-message"
                   rows="4"
                   required
-                  placeholder="आपला संदेश येथे लिहा..."
-                  class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-brand-500 outline-none"
+                  placeholder={t('contact.msgPlaceholder')}
+                  class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-palette-indigo outline-none"
                 ></textarea>
               </div>
 
@@ -149,7 +153,7 @@ const t = useTranslations(currentLang);
                 class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-palette-indigo to-palette-sky hover:brightness-110 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-sm cursor-pointer"
               >
                 <Send class="w-4 h-4" />
-                <span>व्हॉट्सॲपवर संदेश पाठवा (Send via WhatsApp)</span>
+                <span>{t('contact.submit')}</span>
               </button>
             </form>
 
@@ -171,30 +175,60 @@ const t = useTranslations(currentLang);
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      const lang = form.dataset.lang || 'mr';
+      const alertMsg = form.dataset.alertMsg || 'Please fill in all required fields.';
+
       const name = (document.getElementById('contact-name') as HTMLInputElement)?.value.trim() || '';
-      const email = (document.getElementById('contact-email') as HTMLInputElement)?.value.trim() || 'Not Provided';
+      const email = (document.getElementById('contact-email') as HTMLInputElement)?.value.trim() || '-';
       const phone = (document.getElementById('contact-phone') as HTMLInputElement)?.value.trim() || '';
       const subject = (document.getElementById('contact-subject') as HTMLInputElement)?.value.trim() || '';
       const message = (document.getElementById('contact-message') as HTMLTextAreaElement)?.value.trim() || '';
 
       if (!name || !phone || !subject || !message) {
-        alert('कृपया सर्व आवश्यक माहिती भरा. (Please fill in all required fields.)');
+        alert(alertMsg);
         return;
       }
 
-      const whatsappMessage = 
+      let whatsappMessage = '';
+      if (lang === 'mr') {
+        whatsappMessage = 
 `*सेवा भारती पुणे - संपर्क संदेश*
 ━━━━━━━━━━━━━━━━━━━
-👤 *नाव (Name):* ${name}
-📱 *मोबाईल (Phone):* ${phone}
-📧 *ईमेल (Email):* ${email}
-📝 *विषय (Subject):* ${subject}
-💬 *संदेश (Message):*
+👤 *नाव:* ${name}
+📱 *मोबाईल:* ${phone}
+📧 *ईमेल:* ${email}
+📝 *विषय:* ${subject}
+💬 *संदेश:*
+${message}
+━━━━━━━━━━━━━━━━━━━
+_nrsevabharti.com वरून पाठवले_`;
+      } else if (lang === 'hi') {
+        whatsappMessage = 
+`*सेवा भारती पुणे - संपर्क संदेश*
+━━━━━━━━━━━━━━━━━━━
+👤 *नाम:* ${name}
+📱 *मोबाइल:* ${phone}
+📧 *ईमेल:* ${email}
+📝 *विषय:* ${subject}
+💬 *संदेश:*
+${message}
+━━━━━━━━━━━━━━━━━━━
+_nrsevabharti.com से प्रेषित_`;
+      } else {
+        whatsappMessage = 
+`*Seva Bharti Pune - Contact Message*
+━━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${name}
+📱 *Phone:* ${phone}
+📧 *Email:* ${email}
+📝 *Subject:* ${subject}
+💬 *Message:*
 ${message}
 ━━━━━━━━━━━━━━━━━━━
 _Sent via nrsevabharti.com_`;
+      }
 
-      const whatsappUrl = `https://wa.me/919021116405?text=${encodeURIComponent(whatsappMessage)}`;
+      const whatsappUrl = `https://wa.me/918285129797?text=${encodeURIComponent(whatsappMessage)}`;
       window.open(whatsappUrl, '_blank');
     });
   }

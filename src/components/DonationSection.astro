@@ -1,123 +1,245 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { QrCode, Building2, Copy, CheckCircle2 } from 'lucide-astro';
-import { ShieldTrustIcon } from './icons';
+import { Copy, CheckCircle2, ShieldCheck, Landmark, ArrowRight, CheckSquare } from 'lucide-astro';
+import { ShieldTrustIcon, HeartIcon } from './icons';
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 ---
 
-<section id="donate" class="py-16 bg-slate-100/50 dark:bg-slate-900/40 relative transition-colors duration-200">
+<section id="donate" class="py-16 bg-slate-100/60 dark:bg-slate-900/60 relative transition-colors duration-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-2 bg-palette-aqua/20 dark:bg-palette-indigo/30 text-palette-indigo-dark dark:text-palette-aqua text-xs font-bold px-4 py-1.5 rounded-full mb-4 border border-palette-aqua/40 dark:border-palette-indigo/50">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-2 bg-palette-aqua/25 dark:bg-palette-indigo/30 text-palette-indigo-dark dark:text-palette-aqua text-xs font-bold px-4 py-1.5 rounded-full mb-4 border border-palette-aqua/40 dark:border-palette-indigo/50 shadow-xs">
         <ShieldTrustIcon class="w-4 h-4 shrink-0" />
         <span>{t('donate.badge80G')}</span>
       </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
         {t('donate.title')}
       </h2>
-      <p class="mt-3 text-slate-600 dark:text-slate-300 text-base">
-        पुणे जिल्ह्यातील गरजू विद्यार्थ्यांच्या शिक्षणासाठी व सह्याद्री डोंगररांगातील वृक्षारोपणासाठी आपले योगदान द्या.
+      <p class="mt-3 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+        {t('donate.subtitle')}
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+    <!-- Main Content: Bank Details (Left) + 80G Process & Causes (Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
-      <!-- UPI / QR Payment Card -->
-      <div class="glass-card bg-white/90 dark:bg-slate-900/90 p-8 rounded-3xl flex flex-col items-center text-center justify-between transition-colors duration-200">
+      <!-- Bank Account Information Card (AU Small Finance Bank) -->
+      <div class="lg:col-span-7 glass-card bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md flex flex-col justify-between transition-colors duration-200">
         <div>
-          <div class="w-12 h-12 rounded-2xl bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold flex items-center justify-center mx-auto mb-4 border border-palette-gold/30">
-            <QrCode class="w-6 h-6" />
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
-            {t('donate.upiTitle')}
-          </h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 mb-6 font-medium">
-            Scan using any GPay, PhonePe, Paytm, BHIM, or Banking UPI App
-          </p>
-
-          <!-- Simulated QR Code SVG -->
-          <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl shadow-inner inline-block mb-4">
-            <div class="w-48 h-48 bg-brand-950 dark:bg-slate-950 rounded-xl p-3 flex flex-col justify-between items-center text-white text-[10px] tracking-tight">
-              <div class="flex justify-between w-full">
-                <div class="w-10 h-10 bg-white border-4 border-palette-indigo rounded-sm"></div>
-                <div class="w-10 h-10 bg-white border-4 border-palette-indigo rounded-sm"></div>
+          <!-- Header with AU Bank Emblem -->
+          <div class="flex items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800 mb-6">
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center shrink-0 border border-palette-indigo/20">
+                <Landmark class="w-6 h-6" />
               </div>
-              <div class="text-center font-mono py-2">
-                <span class="text-palette-gold font-bold block text-xs">SEVABHARTI PUNE</span>
-                <span class="text-palette-sky-light">sevabhartipune@sbi</span>
-              </div>
-              <div class="flex justify-between w-full">
-                <div class="w-10 h-10 bg-white border-4 border-palette-indigo rounded-sm"></div>
-                <div class="w-6 h-6 bg-palette-gold rounded-full flex items-center justify-center text-slate-950 font-extrabold">
-                  ₹
-                </div>
+              <div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  {t('donate.bankTitle')}
+                </h3>
+                <p class="text-xs text-palette-indigo dark:text-palette-aqua font-semibold">
+                  {t('donate.bankSubtitle')}
+                </p>
               </div>
             </div>
+            <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold border border-palette-gold/30">
+              <CheckCircle2 class="w-3.5 h-3.5" />
+              <span>80G</span>
+            </span>
+          </div>
+
+          <!-- Bank Fields -->
+          <div class="space-y-4">
+            
+            <!-- Beneficiary Name -->
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                  {t('donate.accNameLabel')}
+                </span>
+                <span id="val-acc-name" class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white block truncate">
+                  {t('donate.accName')}
+                </span>
+              </div>
+              <button
+                type="button"
+                class="copy-btn shrink-0 flex items-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-white dark:bg-slate-700 text-palette-indigo dark:text-palette-aqua border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-600 transition-all shadow-xs cursor-pointer"
+                data-copy="NRSEVABHARATI FOUNDATION"
+                data-copied={t('donate.copied')}
+                data-default={t('donate.copy')}
+              >
+                <Copy class="w-3.5 h-3.5" />
+                <span class="btn-text">{t('donate.copy')}</span>
+              </button>
+            </div>
+
+            <!-- Account Number -->
+            <div class="p-4 rounded-2xl bg-palette-indigo/5 dark:bg-palette-indigo/15 border border-palette-indigo/25 flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="text-[11px] font-bold text-palette-indigo dark:text-palette-sky uppercase tracking-wider block">
+                  {t('donate.accNoLabel')}
+                </span>
+                <span id="val-acc-no" class="text-base sm:text-lg font-mono font-black text-slate-900 dark:text-white tracking-wider block">
+                  2602 2459 1326 9276
+                </span>
+              </div>
+              <button
+                type="button"
+                class="copy-btn shrink-0 flex items-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-palette-indigo text-white hover:bg-palette-indigo-dark transition-all shadow-xs cursor-pointer"
+                data-copy="2602245913269276"
+                data-copied={t('donate.copied')}
+                data-default={t('donate.copy')}
+              >
+                <Copy class="w-3.5 h-3.5" />
+                <span class="btn-text">{t('donate.copy')}</span>
+              </button>
+            </div>
+
+            <!-- IFSC Code -->
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                  {t('donate.ifscLabel')}
+                </span>
+                <span id="val-ifsc" class="text-base sm:text-lg font-mono font-black text-slate-900 dark:text-white tracking-wider block">
+                  AUBL0002459
+                </span>
+              </div>
+              <button
+                type="button"
+                class="copy-btn shrink-0 flex items-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-xl bg-white dark:bg-slate-700 text-palette-indigo dark:text-palette-aqua border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-600 transition-all shadow-xs cursor-pointer"
+                data-copy="AUBL0002459"
+                data-copied={t('donate.copied')}
+                data-default={t('donate.copy')}
+              >
+                <Copy class="w-3.5 h-3.5" />
+                <span class="btn-text">{t('donate.copy')}</span>
+              </button>
+            </div>
+
+            <!-- Two Column Bank Info: Bank Name & Account Type -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-700/50">
+                <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 block mb-0.5">{t('donate.bankNameLabel')}</span>
+                <span class="font-bold text-slate-900 dark:text-white">{t('donate.bankName')}</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-700/50">
+                <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 block mb-0.5">{t('donate.accTypeLabel')}</span>
+                <span class="font-bold text-slate-900 dark:text-white">{t('donate.accType')}</span>
+              </div>
+            </div>
+
+            <!-- Branch & Registered Office -->
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/70 dark:border-slate-700/50 text-xs">
+              <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 block mb-0.5">{t('donate.branchLabel')}</span>
+              <span class="font-semibold text-slate-900 dark:text-white">{t('donate.branch')}</span>
+            </div>
+
           </div>
         </div>
 
-        <div class="bg-palette-gold/15 dark:bg-palette-gold/10 border border-palette-gold/30 text-slate-900 dark:text-palette-gold rounded-xl p-3 text-xs w-full font-mono flex items-center justify-between">
-          <span>UPI ID: <strong>sevabhartipune@sbi</strong></span>
-          <button id="copy-upi-btn" class="text-palette-indigo dark:text-palette-gold hover:opacity-80 flex items-center gap-1 font-sans text-xs font-semibold">
-            <Copy class="w-3.5 h-3.5" /> Copy
-          </button>
+        <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <ShieldCheck class="w-4 h-4 text-palette-sky dark:text-palette-aqua" />
+            <span>{t('trust.transparent')}</span>
+          </div>
+          <span class="font-mono text-[11px]">{t('donate.custIdLabel')}: {t('donate.custId')}</span>
         </div>
       </div>
 
-      <!-- Bank Transfer Details Card -->
-      <div class="glass-card bg-white/90 dark:bg-slate-900/90 p-8 rounded-3xl flex flex-col justify-between transition-colors duration-200">
-        <div>
-          <div class="w-12 h-12 rounded-2xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center mb-4 border border-palette-indigo/25">
-            <Building2 class="w-6 h-6" />
-          </div>
-          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
-            {t('donate.bankTitle')}
+      <!-- Right Column: 80G Receipt Process + Cause-based Giving + Cheque Support -->
+      <div class="lg:col-span-5 flex flex-col justify-between gap-6">
+        
+        <!-- Step-by-Step 80G Guide Card -->
+        <div class="glass-card bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+            <HeartIcon class="w-5 h-5 shrink-0" />
+            <span>{t('donate.receiptTitle')}</span>
           </h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 mb-6 font-medium">
-            NEFT / RTGS / IMPS Direct Bank Deposit
-          </p>
 
-          <div class="space-y-3 text-sm border-t border-b border-slate-100 dark:border-slate-800 py-4 mb-6">
-            <div class="flex justify-between py-1">
-              <span class="text-slate-600 dark:text-slate-400">{t('donate.bankName')}</span>
+          <div class="space-y-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <!-- Step 1 -->
+            <div class="flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full bg-palette-indigo text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                1
+              </div>
+              <p class="leading-relaxed">
+                {t('donate.receiptStep1')}
+              </p>
             </div>
-            <div class="flex justify-between py-1">
-              <span class="text-slate-600 dark:text-slate-400">{t('donate.accName')}</span>
+
+            <!-- Step 2 -->
+            <div class="flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full bg-palette-gold text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                2
+              </div>
+              <p class="leading-relaxed">
+                {t('donate.receiptStep2')}
+              </p>
             </div>
-            <div class="flex justify-between py-1 bg-slate-100 dark:bg-slate-800/60 p-2 rounded-lg font-mono">
-              <span class="text-slate-800 dark:text-slate-200">{t('donate.accNo')}</span>
+
+            <!-- Step 3 -->
+            <div class="flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full bg-palette-sky text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                3
+              </div>
+              <p class="leading-relaxed">
+                {t('donate.receiptStep3')}
+              </p>
             </div>
-            <div class="flex justify-between py-1 font-mono">
-              <span class="text-slate-600 dark:text-slate-400">{t('donate.ifsc')}</span>
-            </div>
-            <div class="flex justify-between py-1">
-              <span class="text-slate-600 dark:text-slate-400">{t('donate.branch')}</span>
-            </div>
+          </div>
+
+          <!-- Direct WhatsApp Verification Button -->
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <a
+              href={`https://wa.me/918285129797?text=${encodeURIComponent(
+                currentLang === 'mr'
+                  ? 'नमस्ते, मी एनआर सेवाभारती फाउंडेशन संस्थेला देणगी हस्तांतरित केली आहे. कृपया 80G पावती मिळण्यासाठी सहकार्य करावे.'
+                  : currentLang === 'hi'
+                  ? 'नमस्ते, मैंने एनआर सेवाभारती फाउंडेशन को दान हस्तांतरित किया है। कृपया 80G रसीद प्राप्त करने में सहायता करें।'
+                  : 'Hello, I have transferred a donation to NRSEVABHARATI FOUNDATION. Please assist with my 80G tax exemption receipt.'
+              )}`}
+              target="_blank"
+              class="w-full inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-palette-gold to-amber-500 hover:from-palette-gold-dark hover:to-amber-600 text-slate-950 font-bold px-6 py-4 rounded-2xl shadow-lg shadow-palette-gold/25 hover:shadow-xl transition-all text-sm text-center cursor-pointer"
+            >
+              <span>{t('donate.whatsappBtn')}</span>
+              <ArrowRight class="w-4 h-4" />
+            </a>
           </div>
         </div>
 
-        <div class="bg-palette-aqua/15 dark:bg-palette-indigo/20 text-slate-900 dark:text-palette-aqua rounded-xl p-4 text-xs border border-palette-aqua/30 dark:border-palette-indigo/40">
-          <p class="font-bold mb-1 flex items-center gap-1.5 text-palette-indigo dark:text-palette-aqua">
-            <CheckCircle2 class="w-4 h-4 text-palette-sky dark:text-palette-aqua" />
-            <span>80G Receipt Request / ८०G पावती मिळवण्यासाठी:</span>
-          </p>
-          <p class="text-slate-700 dark:text-slate-300 mb-3">
-            आपल्या देणगीचा स्क्रीनशॉट / UTR नंबर आणि PAN कार्ड तपशील खालील बटनावर क्लिक करून व्हॉट्सॲपवर पाठवा.
-          </p>
-          <a
-            href="https://wa.me/919021116405?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%2C%20%E0%A4%AE%E0%A5%80%20%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A4%BE%20%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4%E0%A5%80%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%87%20%E0%A4%B8%E0%A4%82%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%87%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A5%87%E0%A4%A3%E0%A4%97%E0%A5%80%20%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.%20%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE%2080G%20%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%A4%E0%A5%80%20%E0%A4%AE%E0%A4%BF%E0%A4%B3%E0%A4%A3%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%B8%E0%A4%B9%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AF%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%B5%E0%A5%87."
-            target="_blank"
-            class="inline-flex items-center gap-2 bg-gradient-to-r from-palette-indigo to-palette-sky hover:brightness-110 text-white font-bold px-4 py-2 rounded-lg text-xs transition-colors shadow-xs"
-          >
-            <span>WhatsApp Receipt Request (+91 90211 16405)</span>
-          </a>
+        <!-- Giving Options / Cause Badges (Inspired by Kokan NGO Sponsorship Model) -->
+        <div class="bg-gradient-to-br from-brand-950 to-palette-indigo/90 text-white p-6 sm:p-7 rounded-3xl space-y-4 shadow-lg">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-palette-gold">
+              {t('donate.causeTitle')}
+            </span>
+            <span class="text-xs text-palette-aqua font-semibold">
+              {t('donate.causeImpact')}
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3.5 rounded-2xl bg-white/10 border border-white/10">
+              <span class="text-palette-gold font-extrabold text-base block">{t('donate.perMonth')}</span>
+              <span class="text-slate-200 mt-1 block leading-snug">{t('edu.sponsorTitle')}</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white/10 border border-white/10">
+              <span class="text-palette-aqua font-extrabold text-base block">{t('donate.perTree')}</span>
+              <span class="text-slate-200 mt-1 block leading-snug">{t('eco.sponsorTitle')}</span>
+            </div>
+          </div>
+
+          <!-- Cheque Notice inside card -->
+          <div class="pt-3 border-t border-white/15 flex items-start gap-2 text-[11px] text-slate-300">
+            <CheckSquare class="w-4 h-4 text-palette-gold shrink-0 mt-0.5" />
+            <span>{t('donate.chequeDesc')}</span>
+          </div>
         </div>
-            <span>WhatsApp Receipt Request (+91 90211 16405)</span>
-          </a>
-        </div>
+
       </div>
 
     </div>
@@ -126,14 +248,34 @@ const t = useTranslations(currentLang);
 </section>
 
 <script>
-  function setupCopyBtn() {
-    const copyBtn = document.getElementById('copy-upi-btn');
-    copyBtn?.addEventListener('click', () => {
-      navigator.clipboard.writeText('sevabhartipune@sbi');
-      alert('UPI ID (sevabhartipune@sbi) copied to clipboard!');
+  function setupCopyButtons() {
+    const buttons = document.querySelectorAll('.copy-btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const textToCopy = btn.getAttribute('data-copy');
+        const copiedMsg = btn.getAttribute('data-copied') || 'Copied!';
+        const defaultMsg = btn.getAttribute('data-default') || 'Copy';
+        if (!textToCopy) return;
+
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          const textSpan = btn.querySelector('.btn-text');
+
+          if (textSpan) {
+            textSpan.textContent = copiedMsg;
+            btn.classList.add('bg-palette-gold', 'text-slate-950');
+            setTimeout(() => {
+              textSpan.textContent = defaultMsg;
+              btn.classList.remove('bg-palette-gold', 'text-slate-950');
+            }, 2000);
+          }
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+      });
     });
   }
 
-  setupCopyBtn();
-  document.addEventListener('astro:after-swap', setupCopyBtn);
+  setupCopyButtons();
+  document.addEventListener('astro:after-swap', setupCopyButtons);
 </script>

@@ -1,5 +1,6 @@
 ---
 import { ArrowRight } from 'lucide-astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -11,6 +12,8 @@ interface Props {
 }
 
 const { title, description, category, features, linkUrl, linkText } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 
 const isEdu = category === 'education';
 const badgeColor = isEdu 
@@ -27,7 +30,7 @@ const accentBtn = isEdu
   <div class="p-8">
     <div class="flex items-center justify-between mb-4">
       <span class={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${badgeColor}`}>
-        {isEdu ? 'Education Initiative' : 'Environment Care'}
+        {isEdu ? t('program.edu.category') : t('program.eco.category')}
       </span>
     </div>
 

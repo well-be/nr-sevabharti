@@ -19,27 +19,27 @@ const t = useTranslations(currentLang);
 
 const upcomingDrives = [
   {
-    title: 'सिंहगड पायथा वृक्षारोपण मोहीम',
-    date: 'रविवार, २३ ऑगस्ट २०२६',
-    time: 'सकाळी ७:०० ते १०:००',
-    location: 'डोणजे गाव, सिंहगड पायथा, पुणे',
-    category: 'पर्यावरण',
+    title: t('drive1.title'),
+    date: t('drive1.date'),
+    time: t('drive1.time'),
+    location: t('drive1.location'),
+    category: t('drive1.category'),
     badge: 'bg-palette-aqua/25 text-palette-indigo dark:text-palette-aqua border border-palette-aqua/40'
   },
   {
-    title: 'पद्मावती अभ्यासवर्ग शिक्षक प्रशिक्षण',
-    date: 'शनिवार, २९ ऑगस्ट २०२६',
-    time: 'दुपारी ४:०० ते ६:००',
-    location: 'सहकार नगर केंद्र, पुणे',
-    category: 'शिक्षण',
+    title: t('drive2.title'),
+    date: t('drive2.date'),
+    time: t('drive2.time'),
+    location: t('drive2.location'),
+    category: t('drive2.category'),
     badge: 'bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold border border-palette-gold/30'
   },
   {
-    title: 'मुळा-मुठा नदी घाट स्वच्छता drive',
-    date: 'रविवार, ६ सप्टेंबर २०२६',
-    time: 'सकाळी ६:३० ते ९:००',
-    location: 'संगमघाट, पुणे शहर',
-    category: 'पर्यावरण',
+    title: t('drive3.title'),
+    date: t('drive3.date'),
+    time: t('drive3.time'),
+    location: t('drive3.location'),
+    category: t('drive3.category'),
     badge: 'bg-palette-aqua/25 text-palette-indigo dark:text-palette-aqua border border-palette-aqua/40'
   }
 ];
@@ -47,7 +47,7 @@ const upcomingDrives = [
 
 <Layout title={`${t('vol.title')} | ${t('ngo.name')}`}>
   
-  <section class="py-16 bg-slate-100/60">
+  <section class="py-16 bg-slate-100/60 dark:bg-slate-950 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -59,37 +59,37 @@ const upcomingDrives = [
 
         <!-- Right: Upcoming Drives Calendar in Pune -->
         <div class="lg:col-span-6 space-y-6">
-          <div class="glass-card p-8 rounded-3xl">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 flex items-center justify-center">
+          <div class="glass-card bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md">
+            <div class="flex items-center gap-3.5 mb-6">
+              <div class="w-10 h-10 rounded-xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-aqua flex items-center justify-center border border-palette-indigo/20">
                 <Calendar class="w-5 h-5" />
               </div>
               <div>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">आगामी स्वयंसेवक मोहिमा (Upcoming Drives)</h3>
-                <p class="text-xs text-slate-600 dark:text-slate-400 font-medium">थेट प्रत्यक्ष सामाजिक मोहिमेत सहभागी व्हा</p>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">{t('vol.drivesTitle')}</h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 font-medium">{t('vol.drivesSubtitle')}</p>
               </div>
             </div>
 
             <div class="space-y-4">
               {upcomingDrives.map((drive) => (
-                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 transition-colors">
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 transition-colors">
                   <div class="flex items-center justify-between mb-2">
                     <span class={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${drive.badge}`}>
                       {drive.category}
                     </span>
-                    <span class="text-xs font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
-                      <Calendar class="w-3 h-3 text-slate-400" />
+                    <span class="text-xs font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1.5">
+                      <Calendar class="w-3.5 h-3.5 text-palette-sky dark:text-palette-aqua" />
                       {drive.date}
                     </span>
                   </div>
-                  <h4 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-1">{drive.title}</h4>
+                  <h4 class="text-base font-bold text-slate-900 dark:text-slate-100 mb-2">{drive.title}</h4>
                   <div class="flex flex-wrap gap-4 text-xs text-slate-700 dark:text-slate-300">
-                    <span class="flex items-center gap-1">
-                      <Clock class="w-3.5 h-3.5 text-slate-400" />
+                    <span class="flex items-center gap-1.5">
+                      <Clock class="w-3.5 h-3.5 text-palette-indigo dark:text-palette-aqua" />
                       {drive.time}
                     </span>
-                    <span class="flex items-center gap-1">
-                      <MapPin class="w-3.5 h-3.5 text-slate-400" />
+                    <span class="flex items-center gap-1.5">
+                      <MapPin class="w-3.5 h-3.5 text-palette-gold-dark dark:text-palette-gold" />
                       {drive.location}
                     </span>
                   </div>
@@ -100,20 +100,20 @@ const upcomingDrives = [
           </div>
 
           <!-- Why Volunteer Card -->
-          <div class="bg-gradient-to-br from-brand-950 to-palette-indigo/90 text-white p-6 rounded-3xl space-y-3 shadow-lg">
-            <h4 class="font-bold text-base text-palette-gold">स्वयंसेवक होण्याचे फायदे:</h4>
-            <ul class="text-xs text-slate-200 space-y-2">
-              <li class="flex items-center gap-2">
-                <CheckCircle2 class="w-4 h-4 text-palette-aqua shrink-0" />
-                <span>पुण्यातील सामाजिक समस्यांवर थेट प्रत्यक्ष काम करण्याचा अनुभव</span>
+          <div class="bg-gradient-to-br from-brand-950 to-palette-indigo/90 text-white p-7 rounded-3xl space-y-4 shadow-lg">
+            <h4 class="font-bold text-base text-palette-gold">{t('vol.whyTitle')}</h4>
+            <ul class="text-xs sm:text-sm text-slate-200 space-y-3">
+              <li class="flex items-start gap-2.5">
+                <CheckCircle2 class="w-4 h-4 text-palette-aqua shrink-0 mt-0.5" />
+                <span>{t('vol.benefit1')}</span>
               </li>
-              <li class="flex items-center gap-2">
-                <CheckCircle2 class="w-4 h-4 text-palette-aqua shrink-0" />
-                <span>स्वयंसेवक सहभाग प्रमाणपत्र (Volunteer Certificate)</span>
+              <li class="flex items-start gap-2.5">
+                <CheckCircle2 class="w-4 h-4 text-palette-aqua shrink-0 mt-0.5" />
+                <span>{t('vol.benefit2')}</span>
               </li>
-              <li class="flex items-center gap-2">
-                <CheckCircle2 class="w-4 h-4 text-palette-aqua shrink-0" />
-                <span>समानविचारी युवा नेटवर्किंग व नेतृत्व कौशल्य विकास</span>
+              <li class="flex items-start gap-2.5">
+                <CheckCircle2 class="w-4 h-4 text-palette-aqua shrink-0 mt-0.5" />
+                <span>{t('vol.benefit3')}</span>
               </li>
             </ul>
           </div>
