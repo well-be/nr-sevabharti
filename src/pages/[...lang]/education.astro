@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { languages } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
-import { GraduationCap, BookOpen, Laptop, Award, Heart } from 'lucide-astro';
+import { BookOpen, Laptop, Award } from 'lucide-astro';
+import { EducationIcon, HeartIcon } from '../../components/icons';
 
 export function getStaticPaths() {
   return [
@@ -21,11 +22,11 @@ const translatePath = useTranslatedPath(currentLang);
 <Layout title={`${t('program.education.title')} | ${t('ngo.name')}`}>
   
   <!-- Page Banner -->
-  <section class="bg-gradient-to-r from-amber-600 to-amber-700 text-white py-16">
+  <section class="bg-gradient-to-r from-palette-gold to-edu-600 text-slate-950 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-amber-800/40 text-amber-100 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-amber-500/30">
-          <GraduationCap class="w-4 h-4" />
+        <span class="inline-flex items-center gap-2 bg-slate-950/15 text-slate-950 text-xs font-bold px-3 py-1 rounded-full mb-3 border border-slate-950/20">
+          <EducationIcon class="w-4 h-4 shrink-0" />
           <span>शिक्षा विकास अभियान • Education Drive</span>
         </span>
         <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">
@@ -95,9 +96,9 @@ const translatePath = useTranslatedPath(currentLang);
         </div>
         <a
           href={translatePath('/donate')}
-          class="shrink-0 bg-white hover:bg-amber-50 text-amber-800 font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
+          class="shrink-0 bg-white hover:bg-slate-50 text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
         >
-          <Heart class="w-5 h-5 text-rose-500 fill-rose-500" />
+          <HeartIcon class="w-5 h-5 shrink-0" />
           <span>{t('action.donateNow')}</span>
         </a>
       </div>

@@ -14,12 +14,12 @@ const { title, description, category, features, linkUrl, linkText } = Astro.prop
 
 const isEdu = category === 'education';
 const badgeColor = isEdu 
-  ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300' 
-  : 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300';
+  ? 'bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold border border-palette-gold/30' 
+  : 'bg-palette-aqua/25 text-palette-indigo-dark dark:text-palette-aqua border border-palette-aqua/40';
 
 const accentBtn = isEdu 
-  ? 'bg-edu-500 hover:bg-edu-600 text-white' 
-  : 'bg-brand-500 hover:bg-brand-600 text-white';
+  ? 'bg-palette-gold hover:bg-palette-gold-dark text-slate-950 font-bold shadow-palette-gold/20' 
+  : 'bg-palette-indigo hover:bg-palette-indigo-light text-white font-bold shadow-palette-indigo/20';
 ---
 
 <div class="glass-card bg-white/90 dark:bg-slate-900/90 rounded-3xl overflow-hidden flex flex-col justify-between transition-colors duration-200">
@@ -41,7 +41,7 @@ const accentBtn = isEdu
     <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
       {features.map((feat) => (
         <div class="flex items-start gap-3">
-          <div class={`w-2 h-2 rounded-full mt-2 shrink-0 ${isEdu ? 'bg-amber-500' : 'bg-emerald-500'}`}></div>
+          <div class={`w-2 h-2 rounded-full mt-2 shrink-0 ${isEdu ? 'bg-palette-gold' : 'bg-palette-sky'}`}></div>
           <div>
             <h4 class="text-sm font-semibold text-slate-800 dark:text-slate-200">{feat.title}</h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 leading-snug">{feat.desc}</p>

@@ -11,6 +11,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --palette-gold: #FFC349;
+  --palette-indigo: #525EA7;
+  --palette-sky: #5FACD3;
+  --palette-aqua: #97DDE9;
+}
+
 body {
   letter-spacing: -0.01em;
   transition: background-color 0.25s ease, color 0.25s ease;

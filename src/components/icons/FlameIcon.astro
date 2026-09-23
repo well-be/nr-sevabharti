@@ -1,0 +1,27 @@
+---
+interface Props {
+  class?: string;
+  size?: number;
+}
+
+const { class: className = "w-5 h-5", size = 24 } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class={className}
+>
+  <path
+    d="M12 2C9.5 5.5 7 8.5 7 13C7 16.866 10.134 20 14 20C17.866 20 21 16.866 21 13C21 8.5 17 5 15 3C15 6 13 7 12 2Z"
+    class="fill-palette-sky/35"
+  />
+  <path
+    d="M10.5 7.5C10.5 7.5 7 10.5 7 14C7 17.314 9.686 20 13 20C16.314 20 19 17.314 19 14C19 11.5 17.5 9 15.5 8C15.5 10 14 11 13 9C12 7 10.5 7.5 10.5 7.5Z"
+    class="fill-palette-gold"
+  />
+  <circle cx="13" cy="15" r="2.5" class="fill-palette-indigo" />
+</svg>

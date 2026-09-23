@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { QrCode, Building2, ShieldCheck, Copy, CheckCircle2 } from 'lucide-astro';
+import { QrCode, Building2, Copy, CheckCircle2 } from 'lucide-astro';
+import { ShieldTrustIcon } from './icons';
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
@@ -10,8 +11,8 @@ const t = useTranslations(currentLang);
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-2 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 text-xs font-bold px-4 py-1.5 rounded-full mb-4">
-        <ShieldCheck class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+      <div class="inline-flex items-center gap-2 bg-palette-aqua/20 dark:bg-palette-indigo/30 text-palette-indigo-dark dark:text-palette-aqua text-xs font-bold px-4 py-1.5 rounded-full mb-4 border border-palette-aqua/40 dark:border-palette-indigo/50">
+        <ShieldTrustIcon class="w-4 h-4 shrink-0" />
         <span>{t('donate.badge80G')}</span>
       </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
@@ -27,7 +28,7 @@ const t = useTranslations(currentLang);
       <!-- UPI / QR Payment Card -->
       <div class="glass-card bg-white/90 dark:bg-slate-900/90 p-8 rounded-3xl flex flex-col items-center text-center justify-between transition-colors duration-200">
         <div>
-          <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 flex items-center justify-center mx-auto mb-4">
+          <div class="w-12 h-12 rounded-2xl bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold flex items-center justify-center mx-auto mb-4 border border-palette-gold/30">
             <QrCode class="w-6 h-6" />
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
@@ -39,18 +40,18 @@ const t = useTranslations(currentLang);
 
           <!-- Simulated QR Code SVG -->
           <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl shadow-inner inline-block mb-4">
-            <div class="w-48 h-48 bg-slate-900 dark:bg-slate-900 rounded-xl p-3 flex flex-col justify-between items-center text-white text-[10px] tracking-tight">
+            <div class="w-48 h-48 bg-brand-950 dark:bg-slate-950 rounded-xl p-3 flex flex-col justify-between items-center text-white text-[10px] tracking-tight">
               <div class="flex justify-between w-full">
-                <div class="w-10 h-10 bg-white border-4 border-slate-900 rounded-sm"></div>
-                <div class="w-10 h-10 bg-white border-4 border-slate-900 rounded-sm"></div>
+                <div class="w-10 h-10 bg-white border-4 border-palette-indigo rounded-sm"></div>
+                <div class="w-10 h-10 bg-white border-4 border-palette-indigo rounded-sm"></div>
               </div>
               <div class="text-center font-mono py-2">
-                <span class="text-amber-400 font-bold block text-xs">SEVABHARTI PUNE</span>
-                <span>sevabhartipune@sbi</span>
+                <span class="text-palette-gold font-bold block text-xs">SEVABHARTI PUNE</span>
+                <span class="text-palette-sky-light">sevabhartipune@sbi</span>
               </div>
               <div class="flex justify-between w-full">
-                <div class="w-10 h-10 bg-white border-4 border-slate-900 rounded-sm"></div>
-                <div class="w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center text-slate-900 font-extrabold">
+                <div class="w-10 h-10 bg-white border-4 border-palette-indigo rounded-sm"></div>
+                <div class="w-6 h-6 bg-palette-gold rounded-full flex items-center justify-center text-slate-950 font-extrabold">
                   ₹
                 </div>
               </div>
@@ -58,9 +59,9 @@ const t = useTranslations(currentLang);
           </div>
         </div>
 
-        <div class="bg-amber-50 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 rounded-xl p-3 text-xs w-full font-mono flex items-center justify-between">
+        <div class="bg-palette-gold/15 dark:bg-palette-gold/10 border border-palette-gold/30 text-slate-900 dark:text-palette-gold rounded-xl p-3 text-xs w-full font-mono flex items-center justify-between">
           <span>UPI ID: <strong>sevabhartipune@sbi</strong></span>
-          <button id="copy-upi-btn" class="text-amber-700 dark:text-amber-300 hover:text-amber-900 flex items-center gap-1 font-sans text-xs font-semibold">
+          <button id="copy-upi-btn" class="text-palette-indigo dark:text-palette-gold hover:opacity-80 flex items-center gap-1 font-sans text-xs font-semibold">
             <Copy class="w-3.5 h-3.5" /> Copy
           </button>
         </div>
@@ -69,7 +70,7 @@ const t = useTranslations(currentLang);
       <!-- Bank Transfer Details Card -->
       <div class="glass-card bg-white/90 dark:bg-slate-900/90 p-8 rounded-3xl flex flex-col justify-between transition-colors duration-200">
         <div>
-          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center justify-center mb-4">
+          <div class="w-12 h-12 rounded-2xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center mb-4 border border-palette-indigo/25">
             <Building2 class="w-6 h-6" />
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">
@@ -98,9 +99,9 @@ const t = useTranslations(currentLang);
           </div>
         </div>
 
-        <div class="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 rounded-xl p-4 text-xs">
-          <p class="font-bold mb-1 flex items-center gap-1.5">
-            <CheckCircle2 class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+        <div class="bg-palette-aqua/15 dark:bg-palette-indigo/20 text-slate-900 dark:text-palette-aqua rounded-xl p-4 text-xs border border-palette-aqua/30 dark:border-palette-indigo/40">
+          <p class="font-bold mb-1 flex items-center gap-1.5 text-palette-indigo dark:text-palette-aqua">
+            <CheckCircle2 class="w-4 h-4 text-palette-sky dark:text-palette-aqua" />
             <span>80G Receipt Request / ८०G पावती मिळवण्यासाठी:</span>
           </p>
           <p class="text-slate-700 dark:text-slate-300 mb-3">
@@ -109,8 +110,11 @@ const t = useTranslations(currentLang);
           <a
             href="https://wa.me/919021116405?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%2C%20%E0%A4%AE%E0%A5%80%20%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A4%BE%20%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4%E0%A5%80%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%87%20%E0%A4%B8%E0%A4%82%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%87%E0%A4%B2%E0%A4%BE%20%E0%A4%A6%E0%A5%87%E0%A4%A3%E0%A4%97%E0%A5%80%20%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.%20%E0%A4%95%E0%A5%83%E0%A4%AA%E0%A4%AF%E0%A4%BE%2080G%20%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%A4%E0%A5%80%20%E0%A4%AE%E0%A4%BF%E0%A4%B3%E0%A4%A3%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B8%E0%A4%BE%E0%A4%A0%E0%A5%80%20%E0%A4%B8%E0%A4%B9%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%AF%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%B5%E0%A5%87."
             target="_blank"
-            class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg text-xs transition-colors shadow-xs"
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-palette-indigo to-palette-sky hover:brightness-110 text-white font-bold px-4 py-2 rounded-lg text-xs transition-colors shadow-xs"
           >
+            <span>WhatsApp Receipt Request (+91 90211 16405)</span>
+          </a>
+        </div>
             <span>WhatsApp Receipt Request (+91 90211 16405)</span>
           </a>
         </div>

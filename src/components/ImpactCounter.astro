@@ -10,41 +10,41 @@ const stats = [
     icon: GraduationCap,
     number: t('stat.students'),
     label: t('stat.studentsLabel'),
-    color: 'from-amber-500 to-amber-600',
-    bgColor: 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300'
+    color: 'from-palette-gold to-amber-600',
+    bgColor: 'bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold'
   },
   {
     icon: Trees,
     number: t('stat.trees'),
     label: t('stat.treesLabel'),
-    color: 'from-emerald-500 to-emerald-700',
-    bgColor: 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
+    color: 'from-palette-sky to-palette-aqua-dark',
+    bgColor: 'bg-palette-aqua/25 text-palette-sky-dark dark:text-palette-aqua'
   },
   {
     icon: MapPin,
     number: t('stat.talukas'),
     label: t('stat.talukasLabel'),
-    color: 'from-blue-500 to-indigo-700',
-    bgColor: 'bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300'
+    color: 'from-palette-indigo to-palette-sky',
+    bgColor: 'bg-palette-indigo/20 text-palette-indigo dark:text-palette-sky-light'
   },
   {
     icon: Users,
     number: t('stat.volunteers'),
     label: t('stat.volunteersLabel'),
-    color: 'from-rose-500 to-pune-accent',
-    bgColor: 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300'
+    color: 'from-palette-gold to-palette-indigo',
+    bgColor: 'bg-palette-aqua/20 text-palette-indigo dark:text-palette-gold'
   }
 ];
 ---
 
-<section class="py-16 bg-gradient-to-b from-slate-100 via-slate-50 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-300">
+<section class="py-16 bg-gradient-to-b from-slate-100 via-slate-50 to-slate-100 dark:from-slate-950 dark:via-brand-950/40 dark:to-slate-950 text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-300">
   <!-- Subtle background blur circles -->
-  <div class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-600/20 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 dark:bg-amber-600/20 rounded-full blur-3xl"></div>
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-palette-aqua/15 dark:bg-palette-aqua/20 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-palette-gold/15 dark:bg-palette-gold/20 rounded-full blur-3xl"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center max-w-3xl mx-auto mb-12">
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-amber-700 via-brand-800 to-emerald-700 dark:from-amber-200 dark:via-white dark:to-emerald-200 bg-clip-text text-transparent">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-palette-gold via-palette-indigo to-palette-sky dark:from-palette-gold dark:via-white dark:to-palette-aqua bg-clip-text text-transparent">
         {t('impact.title')}
       </h2>
       <p class="mt-4 text-base text-slate-600 dark:text-slate-300 font-medium">

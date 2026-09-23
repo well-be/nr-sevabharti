@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { languages } from '../../i18n/ui';
 import { useTranslations, useTranslatedPath } from '../../i18n/utils';
-import { Trees, Droplets, Trash2, Sprout, Heart } from 'lucide-astro';
+import { Droplets, Trash2, Sprout } from 'lucide-astro';
+import { EnvironmentIcon, HeartIcon } from '../../components/icons';
 
 export function getStaticPaths() {
   return [
@@ -21,17 +22,17 @@ const translatePath = useTranslatedPath(currentLang);
 <Layout title={`${t('program.environment.title')} | ${t('ngo.name')}`}>
   
   <!-- Page Banner -->
-  <section class="bg-gradient-to-r from-emerald-700 to-teal-800 text-white py-16">
+  <section class="bg-gradient-to-r from-palette-indigo to-palette-sky text-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <span class="inline-flex items-center gap-2 bg-emerald-900/40 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-emerald-500/30">
-          <Trees class="w-4 h-4" />
+        <span class="inline-flex items-center gap-2 bg-white/15 text-palette-aqua text-xs font-bold px-3 py-1 rounded-full mb-3 border border-white/20">
+          <EnvironmentIcon class="w-4 h-4 shrink-0" />
           <span>पर्यावरण व निसर्ग संवर्धन मोहीम</span>
         </span>
         <h1 class="text-3xl sm:text-4xl font-extrabold mb-3">
           {t('program.environment.title')}
         </h1>
-        <p class="text-emerald-100 text-base leading-relaxed">
+        <p class="text-palette-aqua-light text-base leading-relaxed">
           {t('program.environment.desc')}
         </p>
       </div>
@@ -86,18 +87,18 @@ const translatePath = useTranslatedPath(currentLang);
       </div>
 
       <!-- Eco Action Banner -->
-      <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
+      <div class="bg-gradient-to-r from-palette-indigo to-palette-sky text-white rounded-3xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
         <div class="space-y-2 text-center sm:text-left">
           <h2 class="text-2xl sm:text-3xl font-extrabold">१ झाड दत्तक घ्या • Plant a Tree Campaign</h2>
-          <p class="text-emerald-100 text-sm max-w-xl">
+          <p class="text-palette-aqua-light text-sm max-w-xl">
             केवळ ₹ २५० मध्ये १ देशी झाड लावा आणि त्याचे ३ वर्षे संगोपन आमच्या स्वयंसेवकांमार्फत सुनिश्चित करा.
           </p>
         </div>
         <a
           href={translatePath('/donate')}
-          class="shrink-0 bg-white hover:bg-emerald-50 text-emerald-800 font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
+          class="shrink-0 bg-palette-gold hover:bg-palette-gold-dark text-slate-950 font-bold px-8 py-4 rounded-2xl shadow-md transition-all flex items-center gap-2"
         >
-          <Heart class="w-5 h-5 text-rose-500 fill-rose-500" />
+          <HeartIcon class="w-5 h-5 shrink-0" />
           <span>{t('action.donateNow')}</span>
         </a>
       </div>

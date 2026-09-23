@@ -43,30 +43,30 @@ const t = useTranslations(currentLang);
           </div>
 
           <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-palette-aqua/25 text-palette-indigo dark:text-palette-aqua flex items-center justify-center shrink-0">
               <MessageCircle class="w-5 h-5" />
             </div>
             <div>
               <h3 class="font-bold text-slate-900 dark:text-white mb-1">फोन व व्हॉट्सॲप (Phone / WhatsApp)</h3>
-              <a href="https://wa.me/919021116405" target="_blank" class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1.5 mt-0.5">
+              <a href="https://wa.me/919021116405" target="_blank" class="text-sm font-semibold text-palette-indigo dark:text-palette-aqua hover:underline flex items-center gap-1.5 mt-0.5">
                 <span>+91 90211 16405</span>
-                <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900/60 px-2 py-0.5 rounded-full text-emerald-800 dark:text-emerald-300">WhatsApp Active</span>
+                <span class="text-[10px] bg-palette-aqua/30 dark:bg-palette-indigo/50 px-2 py-0.5 rounded-full text-palette-indigo-dark dark:text-palette-aqua font-bold">WhatsApp Active</span>
               </a>
             </div>
           </div>
 
           <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-palette-indigo/15 text-palette-indigo dark:text-palette-sky flex items-center justify-center shrink-0">
               <Mail class="w-5 h-5" />
             </div>
             <div>
               <h3 class="font-bold text-slate-900 dark:text-white mb-1">ईमेल (Email Address)</h3>
-              <a href={`mailto:${t('footer.email')}`} class="text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors leading-relaxed">{t('footer.email')}</a>
+              <a href={`mailto:${t('footer.email')}`} class="text-xs text-slate-600 dark:text-slate-400 hover:text-palette-indigo dark:hover:text-palette-aqua transition-colors leading-relaxed">{t('footer.email')}</a>
             </div>
           </div>
 
           <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4 transition-colors duration-200">
-            <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-palette-gold/20 text-palette-gold-dark dark:text-palette-gold flex items-center justify-center shrink-0">
               <Clock class="w-5 h-5" />
             </div>
             <div>
@@ -82,7 +82,7 @@ const t = useTranslations(currentLang);
           <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md transition-colors duration-200">
             <div class="flex items-center justify-between mb-6">
               <h3 class="text-xl font-bold text-slate-900 dark:text-white">आम्हाला संदेश पाठवा (Send us a Message)</h3>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950 px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
+              <span class="text-xs text-palette-indigo dark:text-palette-aqua font-semibold bg-palette-aqua/20 dark:bg-palette-indigo/40 px-2.5 py-1 rounded-full border border-palette-aqua/40 dark:border-palette-indigo/50 flex items-center gap-1">
                 <MessageCircle class="w-3.5 h-3.5" />
                 <span>Direct WhatsApp</span>
               </span>
@@ -146,7 +146,7 @@ const t = useTranslations(currentLang);
 
               <button
                 type="submit"
-                class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-sm cursor-pointer"
+                class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-palette-indigo to-palette-sky hover:brightness-110 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-sm cursor-pointer"
               >
                 <Send class="w-4 h-4" />
                 <span>व्हॉट्सॲपवर संदेश पाठवा (Send via WhatsApp)</span>

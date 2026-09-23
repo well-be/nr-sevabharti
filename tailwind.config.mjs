@@ -5,47 +5,120 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Palette Direct References
+        palette: {
+          gold: '#FFC349',     // Honey / Saffron Gold
+          indigo: '#525EA7',   // Royal Indigo
+          sky: '#5FACD3',      // Sky Cerulean
+          aqua: '#97DDE9',     // Soft Aqua
+          'gold-light': '#FFF0D0',
+          'gold-dark': '#E5A82E',
+          'indigo-light': '#6B78C4',
+          'indigo-dark': '#384177',
+          'sky-light': '#D6EFFB',
+          'sky-dark': '#428CB1',
+          'aqua-light': '#E6F8FB',
+          'aqua-dark': '#6EC3D2',
+        },
+        // 1. Primary Brand Scale -> Driven by Royal Indigo (#525EA7)
         brand: {
-          50: '#eefcf5',  // Vibrant soft mint chalk
-          100: '#d4f7e4',
-          200: '#a7eed0',
-          300: '#6ee0b2',
-          400: '#34cb90',
-          500: '#10b981', // Modern Vibrant Matte Emerald Green
-          600: '#059669', // Rich Vibrant Emerald
-          700: '#047857',
-          800: '#065f46',
-          900: '#022c22',
+          50: '#f2f4fc',
+          100: '#e3e7f8',
+          200: '#cbd4f2',
+          300: '#a7b8e7',
+          400: '#7c94d9',
+          500: '#525EA7', // Royal Indigo Palette (#525EA7)
+          600: '#434c92',
+          700: '#383e7a',
+          800: '#313665',
+          900: '#2c3055',
+          950: '#1a1c35',
         },
+        // 2. Education / Warm Accent Scale -> Driven by Honey Gold (#FFC349)
         edu: {
-          50: '#fff7ed',  // Warm vibrant peach-chalk
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316', // Vibrant Matte Sunset Coral / Tangerine
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
+          50: '#fffbf0',
+          100: '#fef4db',
+          200: '#fde7b3',
+          300: '#fcd684',
+          400: '#fbca5d',
+          500: '#FFC349', // Honey Gold Palette (#FFC349)
+          600: '#e5a52e',
+          700: '#ba7d1f',
+          800: '#955e1d',
+          900: '#7b4c1c',
+          950: '#452709',
         },
+        // 3. Environment Scale -> Driven by Sky Cerulean (#5FACD3) & Soft Aqua (#97DDE9)
         eco: {
-          50: '#f0fdfa',  // Modern electric teal-chalk
-          100: '#ccfbf1',
-          200: '#99f6e4',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6', // Vibrant Matte Modern Teal
-          600: '#0d9488',
-          700: '#0f766e',
-          800: '#115e59',
+          50: '#f3fbfd',
+          100: '#e3f6fa',
+          200: '#cbeff6',
+          300: '#97DDE9', // Soft Aqua Palette (#97DDE9)
+          400: '#7bcbe0',
+          500: '#5FACD3', // Sky Cerulean Palette (#5FACD3)
+          600: '#4795bc',
+          700: '#3a7999',
+          800: '#33657e',
+          900: '#2d5368',
+          950: '#17303f',
+        },
+        // Override default Tailwind 'amber' with Palette Gold (#FFC349)
+        amber: {
+          50: '#fffbf0',
+          100: '#fef4db',
+          200: '#fde7b3',
+          300: '#fcd684',
+          400: '#fbca5d',
+          500: '#FFC349',
+          600: '#e5a52e',
+          700: '#ba7d1f',
+          800: '#955e1d',
+          900: '#7b4c1c',
+          950: '#452709',
+        },
+        // Override default Tailwind 'emerald' with Palette Indigo & Sky/Aqua (NO MORE GREEN!)
+        emerald: {
+          50: '#f3fbfd',
+          100: '#e3f6fa',
+          200: '#cbeff6',
+          300: '#97DDE9', // Soft Aqua
+          400: '#7bcbe0',
+          500: '#5FACD3', // Sky Cerulean
+          600: '#525EA7', // Royal Indigo
+          700: '#434c92',
+          800: '#383e7a',
+          900: '#2c3055',
+          950: '#1a1c35',
+        },
+        // Override default Tailwind 'teal' with Soft Aqua & Sky Cerulean
+        teal: {
+          50: '#f3fbfd',
+          100: '#e3f6fa',
+          200: '#cbeff6',
+          300: '#97DDE9',
+          400: '#7bcbe0',
+          500: '#5FACD3',
+          600: '#4795bc',
+          700: '#3a7999',
+          800: '#33657e',
+          900: '#2d5368',
+          950: '#17303f',
         },
         pune: {
-          dark: '#0f172a',   // Modern Slate Navy Charcoal
-          accent: '#ff5722', // Vibrant Modern Matte Saffron Vermilion
-          indigo: '#6366f1', // Fresh Accent Indigo
-          chalk: '#fafafa',  // Crisp Vibrant Porcelain Base
-          stone: '#e2e8f0',  // Crisp Matte Border
+          dark: '#161936',   // Deep Indigo Slate
+          accent: '#FFC349', // Palette Honey Gold
+          indigo: '#525EA7', // Palette Royal Indigo
+          sky: '#5FACD3',    // Palette Sky Cerulean
+          aqua: '#97DDE9',   // Palette Soft Aqua
+          chalk: '#fafbfc',  // Crisp Cool Porcelain Base
+          stone: '#dbe4f0',  // Crisp Palette Border
         }
+      },
+      backgroundImage: {
+        'gradient-palette-cool': 'linear-gradient(135deg, #525EA7 0%, #5FACD3 50%, #97DDE9 100%)',
+        'gradient-palette-warm': 'linear-gradient(135deg, #FFC349 0%, #f97316 100%)',
+        'gradient-palette-contrast': 'linear-gradient(135deg, #FFC349 0%, #525EA7 100%)',
+        'gradient-palette-radial': 'radial-gradient(circle, #97DDE933 0%, transparent 70%)',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', '"Noto Sans Devanagari"', 'sans-serif'],
